@@ -3,7 +3,7 @@
 #### Lavet af Amalie, Amanda og Benjamin.
 
 ### Task 1
-Model the JSON abstract syntax tree** using ValueDomains (hint: can be done using around 8 ValueDomains).
+Model the JSON abstract syntax tree using ValueDomains (hint: can be done using around 8 ValueDomains).
 
 - Link til [ValueDomains](https://github.com/amandajuhl95/Assignment3/blob/master/edmasrc/assignment3.edma)
 - Link til [Main metode](https://github.com/amandajuhl95/Assignment3/blob/master/src/dk/amandaogamalie/Assignment3/Assignment3.java)
