@@ -1,10 +1,10 @@
     //Id
     ValueDomain Id : Integer[MIN..MAX]
 
-//Name
-ValueDomain Name : String[1..20]
+    //Name
+    ValueDomain Name : String[1..20]
+    
     //Age
-
     ValueDomain Age : Integer[0..100]
 
     //ECTSPoints
