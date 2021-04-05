@@ -1,7 +1,13 @@
 package dk.amandaogamalie.Assignment3.generated.valuedomains.impl;
 
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Course;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.ECTSPoints;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Id;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.Name;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.external.EDMA_ExternalConstraints;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.ECTSPointsImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.IdImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.NameImpl;
 import java.io.DataOutput;
 import java.io.IOException;
 import org.abstractica.edma.valuedomains.IMetaValueDomain;
@@ -9,11 +15,12 @@ import org.abstractica.edma.valuedomains.IValueInstance;
 import org.abstractica.edma.valuedomains.exceptions.InvalidValueException;
 
 /**
- * The implementation of Name
+ * The implementation of Course
  */
-public class NameImpl extends Name implements IValueInstance
+public class CourseImpl extends Course implements IValueInstance
 {
-    private Object value;
+    private int edma_hash;
+    private Object[] value;
 
 
 
@@ -38,11 +45,12 @@ public class NameImpl extends Name implements IValueInstance
 
     /**
      * Constructor
-     * @param value  The internal value
+     * @param o  The Object that represents this struct value
      */
-    public NameImpl(Object value)
+    public CourseImpl(Object o)
     {
-        this.value = value;
+        edma_hash = 0;
+        value = (Object[]) o;
     }
 
     /**
@@ -72,7 +80,7 @@ public class NameImpl extends Name implements IValueInstance
     {
         if(!(o instanceof IValueInstance)) return false;
         IValueInstance inst = (IValueInstance) o;
-        if(1 != inst.edma_getDomain().getIndex()) return false;
+        if(5 != inst.edma_getDomain().getIndex()) return false;
         return edma_domain.valueEqual(value, inst.edma_getValue());
     }
 
@@ -82,7 +90,8 @@ public class NameImpl extends Name implements IValueInstance
      */
     public int hashCode()
     {
-        return value.hashCode();
+        if(edma_hash == 0) edma_hash = edma_domain.valueHashCode(value);
+        return edma_hash;
     }
 
     /**
@@ -95,15 +104,15 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * Compare this Name to another Name
-     * @param name  The Name to compare with
-     * @return      A negative integer, zero, or a positive integer as this
-     *              Name is less than, equal to, or greater than the specified
-     *              Name
+     * Compare this Course to another Course
+     * @param course  The Course to compare with
+     * @return        A negative integer, zero, or a positive integer as this
+     *                Course is less than, equal to, or greater than the
+     *                specified Course
      */
-    public int compareTo(Name name)
+    public int compareTo(Course course)
     {
-        return edma_domain.valueCompare(value, ((NameImpl) name).value);
+        return edma_domain.valueCompare(value, ((CourseImpl) course).value);
     }
 
     /**
@@ -116,11 +125,29 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * returns the String value that is stored in this Name
-     * @return  The String value stored in this Name
+     * returns the value of the field id
+     * @return  The value of the field id
      */
-    public String value()
+    public Id id()
     {
-        return (String) value;
+        return new IdImpl(value[0]);
+    }
+
+    /**
+     * returns the value of the field name
+     * @return  The value of the field name
+     */
+    public Name name()
+    {
+        return new NameImpl(value[1]);
+    }
+
+    /**
+     * returns the value of the field points
+     * @return  The value of the field points
+     */
+    public ECTSPoints points()
+    {
+        return new ECTSPointsImpl(value[2]);
     }
 }

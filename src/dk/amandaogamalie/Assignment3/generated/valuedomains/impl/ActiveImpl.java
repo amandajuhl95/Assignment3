@@ -1,6 +1,6 @@
 package dk.amandaogamalie.Assignment3.generated.valuedomains.impl;
 
-import dk.amandaogamalie.Assignment3.generated.valuedomains.Name;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Active;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.external.EDMA_ExternalConstraints;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import org.abstractica.edma.valuedomains.IValueInstance;
 import org.abstractica.edma.valuedomains.exceptions.InvalidValueException;
 
 /**
- * The implementation of Name
+ * The implementation of Active
  */
-public class NameImpl extends Name implements IValueInstance
+public class ActiveImpl extends Active implements IValueInstance
 {
     private Object value;
 
@@ -40,7 +40,7 @@ public class NameImpl extends Name implements IValueInstance
      * Constructor
      * @param value  The internal value
      */
-    public NameImpl(Object value)
+    public ActiveImpl(Object value)
     {
         this.value = value;
     }
@@ -72,7 +72,7 @@ public class NameImpl extends Name implements IValueInstance
     {
         if(!(o instanceof IValueInstance)) return false;
         IValueInstance inst = (IValueInstance) o;
-        if(1 != inst.edma_getDomain().getIndex()) return false;
+        if(4 != inst.edma_getDomain().getIndex()) return false;
         return edma_domain.valueEqual(value, inst.edma_getValue());
     }
 
@@ -95,15 +95,15 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * Compare this Name to another Name
-     * @param name  The Name to compare with
-     * @return      A negative integer, zero, or a positive integer as this
-     *              Name is less than, equal to, or greater than the specified
-     *              Name
+     * Compare this Active to another Active
+     * @param active  The Active to compare with
+     * @return        A negative integer, zero, or a positive integer as this
+     *                Active is less than, equal to, or greater than the
+     *                specified Active
      */
-    public int compareTo(Name name)
+    public int compareTo(Active active)
     {
-        return edma_domain.valueCompare(value, ((NameImpl) name).value);
+        return edma_domain.valueCompare(value, ((ActiveImpl) active).value);
     }
 
     /**
@@ -116,8 +116,8 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * returns the String value that is stored in this Name
-     * @return  The String value stored in this Name
+     * returns the String value that is stored in this Active
+     * @return  The String value stored in this Active
      */
     public String value()
     {

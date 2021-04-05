@@ -1,54 +1,25 @@
-
-//Id
-ValueDomain Id : Integer[MIN..MAX]
+    //Id
+    ValueDomain Id : Integer[MIN..MAX]
 
 //Name
-ValueDomain Name : String[1..MAX]
+ValueDomain Name : String[1..20]
+    //Age
 
-//Age
-ValueDomain Age : Integer[0..100]
+    ValueDomain Age : Integer[0..100]
 
-//ECTSPoints
-ValueDomain ECTSPoints : Integer[1..60]
+    //ECTSPoints
+    ValueDomain ECTSPoints : Integer[1..60]
 
-//Active
-ValueDomain Active : Enum[True, False]
+    //Active
+    ValueDomain Active : Enum[True, False]
 
-//Course
-ValueDomain Course : struct{id:Id, name:Name, points:ECTSPoints}
+    //Course
+    ValueDomain Course : Struct{id:Id, name:Name, points:ECTSPoints}
 
-//Courses
-ValueDomain Courses : List<Course>
+    //Courses
+    ValueDomain Courses : List<Course>
 
-//Student
-ValueDomain Student : struct{id:Id, name:Name, age:Age, courses:Courses, active:Active}
+    //Student
+    ValueDomain Student : Struct{name:Name, age:Age, courses:Courses, active:Active}
 
 
-// Create Course
-     Action createCourse
-     	{
-     		Description:
-     			"Creates a new course"
-     		Input:
-     			name : Name,
-     			points : ECTSPoints
-     		Output:
-     			id : CourseId
-     		ErrorCodes:
-     			1 - "Course already exists",
-     	}
-
-// Create Student
-Action createStudent
-	{
-		Description:
-			"Creates a new student"
-		Input:
-			name : Name,
-			age : Age,
-			active : Active
-		Output:
-			id : StudentId
-		ErrorCodes:
-			1 - "Student already exists",
-	}

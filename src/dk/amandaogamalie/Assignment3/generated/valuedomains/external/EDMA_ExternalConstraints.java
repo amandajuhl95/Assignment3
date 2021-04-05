@@ -1,11 +1,5 @@
 package dk.amandaogamalie.Assignment3.generated.valuedomains.external;
 
-import dk.amandaogamalie.Assignment3.generated.valuedomains.Date;
-import dk.amandaogamalie.Assignment3.generated.valuedomains.MyInt;
-import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.DateImpl;
-import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.MyIntImpl;
-import dk.amandaogamalie.Assignment3.usercode.valueconstraints.date.ValidDate;
-import dk.amandaogamalie.Assignment3.usercode.valueconstraints.myint.IsEven;
 import org.abstractica.edma.util.Pair;
 import org.abstractica.edma.valuedomains.IExternalConstraints;
 
@@ -38,22 +32,6 @@ public class EDMA_ExternalConstraints implements IExternalConstraints
     {
         switch(edma_index)
         {
-            case 0:
-            {
-                MyInt myInt = new MyIntImpl(edma_obj);
-                String edma_reason;
-                edma_reason = IsEven.checkIsEven(myInt);
-                if(edma_reason != null) return new Pair<Integer, String>(0, edma_reason);
-                return null;
-            }
-            case 4:
-            {
-                Date date = new DateImpl(edma_obj);
-                String edma_reason;
-                edma_reason = ValidDate.checkValidDate(date);
-                if(edma_reason != null) return new Pair<Integer, String>(0, edma_reason);
-                return null;
-            }
             default :
                 throw new RuntimeException("Internal Error!");
         }

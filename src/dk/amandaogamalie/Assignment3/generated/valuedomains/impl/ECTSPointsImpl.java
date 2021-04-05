@@ -1,6 +1,6 @@
 package dk.amandaogamalie.Assignment3.generated.valuedomains.impl;
 
-import dk.amandaogamalie.Assignment3.generated.valuedomains.Name;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.ECTSPoints;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.external.EDMA_ExternalConstraints;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -9,9 +9,9 @@ import org.abstractica.edma.valuedomains.IValueInstance;
 import org.abstractica.edma.valuedomains.exceptions.InvalidValueException;
 
 /**
- * The implementation of Name
+ * The implementation of ECTSPoints
  */
-public class NameImpl extends Name implements IValueInstance
+public class ECTSPointsImpl extends ECTSPoints implements IValueInstance
 {
     private Object value;
 
@@ -40,7 +40,7 @@ public class NameImpl extends Name implements IValueInstance
      * Constructor
      * @param value  The internal value
      */
-    public NameImpl(Object value)
+    public ECTSPointsImpl(Object value)
     {
         this.value = value;
     }
@@ -72,7 +72,7 @@ public class NameImpl extends Name implements IValueInstance
     {
         if(!(o instanceof IValueInstance)) return false;
         IValueInstance inst = (IValueInstance) o;
-        if(1 != inst.edma_getDomain().getIndex()) return false;
+        if(3 != inst.edma_getDomain().getIndex()) return false;
         return edma_domain.valueEqual(value, inst.edma_getValue());
     }
 
@@ -95,15 +95,15 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * Compare this Name to another Name
-     * @param name  The Name to compare with
-     * @return      A negative integer, zero, or a positive integer as this
-     *              Name is less than, equal to, or greater than the specified
-     *              Name
+     * Compare this ECTSPoints to another ECTSPoints
+     * @param eCTSPoints  The ECTSPoints to compare with
+     * @return            A negative integer, zero, or a positive integer as
+     *                    this ECTSPoints is less than, equal to, or greater
+     *                    than the specified ECTSPoints
      */
-    public int compareTo(Name name)
+    public int compareTo(ECTSPoints eCTSPoints)
     {
-        return edma_domain.valueCompare(value, ((NameImpl) name).value);
+        return edma_domain.valueCompare(value, ((ECTSPointsImpl) eCTSPoints).value);
     }
 
     /**
@@ -116,11 +116,11 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * returns the String value that is stored in this Name
-     * @return  The String value stored in this Name
+     * returns the Integer value that is stored in this ECTSPoints
+     * @return  The Integer value stored in this ECTSPoints
      */
-    public String value()
+    public Integer value()
     {
-        return (String) value;
+        return (Integer) value;
     }
 }

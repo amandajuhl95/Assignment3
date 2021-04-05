@@ -2,7 +2,7 @@ package dk.amandaogamalie.Assignment3.generated.valuedomains;
 
 import dk.amandaogamalie.Assignment3.generated.Assignment3;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.external.EDMA_ExternalConstraints;
-import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.NameImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.AgeImpl;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
@@ -12,79 +12,79 @@ import org.abstractica.edma.valuedomains.userinput.ITerminal;
 import org.abstractica.edma.valuedomains.userinput.ValueDomainInput;
 
 /**
- * The representation of a value from the value domain: Name
+ * The representation of a value from the value domain: Age
  */
-public abstract class Name implements Comparable<Name>
+public abstract class Age implements Comparable<Age>
 {
-    protected static final IMetaValueDomain edma_domain = Assignment3.environment.getValueDomainDefinitions().getValueDomain(1);
+    protected static final IMetaValueDomain edma_domain = Assignment3.environment.getValueDomainDefinitions().getValueDomain(2);
 
 
 
     /**
      * Get a value from a terminal
      * @param terminal  The terminal to get the value from
-     * @return          The Name from the terminal
+     * @return          The Age from the terminal
      */
-    public static Name fromTerminal(ITerminal terminal)
+    public static Age fromTerminal(ITerminal terminal)
     {
         ValueDomainInput vdi = new ValueDomainInput(terminal, EDMA_ExternalConstraints.instance);
-        return new NameImpl(vdi.getValue(edma_domain));
+        return new AgeImpl(vdi.getValue(edma_domain));
     }
 
     /**
      * Get a value from its string representation
      * @param s  The String to parse
-     * @return   The Name from the string representation
+     * @return   The Age from the string representation
      */
-    public static Name fromString(String s) throws InvalidValueException
+    public static Age fromString(String s) throws InvalidValueException
     {
         Object res = edma_domain.valueFromString(s, EDMA_ExternalConstraints.instance);
-        return new NameImpl(res);
+        return new AgeImpl(res);
     }
 
     /**
      * Reads and validates a value from a stream
      * @param in  A data input interface for the stream to read from
-     * @return    The Name read from the stream
+     * @return    The Age read from the stream
      */
-    public static Name fromStream(DataInput in) throws IOException, InvalidValueException
+    public static Age fromStream(DataInput in) throws IOException, InvalidValueException
     {
         Object res = edma_domain.readValue(in, EDMA_ExternalConstraints.instance);
-        return new NameImpl(res);
+        return new AgeImpl(res);
     }
 
     /**
      * Reads a value from a stream without validating the value
      * @param in  A data input interface for the stream to read from
-     * @return    The Name read from the stream
+     * @return    The Age read from the stream
      */
-    public static Name fromStreamNoValidate(DataInput in) throws IOException
+    public static Age fromStreamNoValidate(DataInput in) throws IOException
     {
         Object res = edma_domain.readValueNoValidate(in);
-        return new NameImpl(res);
+        return new AgeImpl(res);
     }
 
     /**
-     * Call this method to create a new Name value. 
-     * @param value  The value of the Name to be created.
-     * @return       The newly created Name value
+     * Call this method to create a new Age value. 
+     * @param value  The value of the Age to be created.
+     * @return       The newly created Age value
      */
-    public static Name create(String value) throws InvalidValueException
+    public static Age create(Integer value) throws InvalidValueException
     {
-        NameImpl.edma_validate(value);
-        return new NameImpl(NameImpl.edma_create(value));
+        AgeImpl.edma_validate(value);
+        return new AgeImpl(AgeImpl.edma_create(value));
     }
 
     /**
-     * Call this method to test if the provided String is a valid Name
-     * @param value  The String value to be tested
-     * @return       true if the provided String is a valid Name
+     * Call this method to test if the provided Integer is a valid Age
+     * @param value  The Integer value to be tested
+     * @return       true if the provided Integer is a valid Age
      */
-    public static boolean isValidName(String value)
+    public static boolean isValidAge(Integer value)
     {
         try
         {
-            NameImpl.edma_validate(value);
+            AgeImpl.edma_validate(value);
         }
         catch(InvalidValueException e)
         {
@@ -102,8 +102,8 @@ public abstract class Name implements Comparable<Name>
     public abstract void toStream(DataOutput out) throws IOException;
 
     /**
-     * returns the String value that is stored in this Name
-     * @return  The String value stored in this Name
+     * returns the Integer value that is stored in this Age
+     * @return  The Integer value stored in this Age
      */
-    public abstract String value();
+    public abstract Integer value();
 }

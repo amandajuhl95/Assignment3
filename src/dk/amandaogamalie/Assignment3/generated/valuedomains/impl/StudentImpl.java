@@ -1,7 +1,15 @@
 package dk.amandaogamalie.Assignment3.generated.valuedomains.impl;
 
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Active;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Age;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Courses;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.Name;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.Student;
 import dk.amandaogamalie.Assignment3.generated.valuedomains.external.EDMA_ExternalConstraints;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.ActiveImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.AgeImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.CoursesImpl;
+import dk.amandaogamalie.Assignment3.generated.valuedomains.impl.NameImpl;
 import java.io.DataOutput;
 import java.io.IOException;
 import org.abstractica.edma.valuedomains.IMetaValueDomain;
@@ -9,11 +17,12 @@ import org.abstractica.edma.valuedomains.IValueInstance;
 import org.abstractica.edma.valuedomains.exceptions.InvalidValueException;
 
 /**
- * The implementation of Name
+ * The implementation of Student
  */
-public class NameImpl extends Name implements IValueInstance
+public class StudentImpl extends Student implements IValueInstance
 {
-    private Object value;
+    private int edma_hash;
+    private Object[] value;
 
 
 
@@ -38,11 +47,12 @@ public class NameImpl extends Name implements IValueInstance
 
     /**
      * Constructor
-     * @param value  The internal value
+     * @param o  The Object that represents this struct value
      */
-    public NameImpl(Object value)
+    public StudentImpl(Object o)
     {
-        this.value = value;
+        edma_hash = 0;
+        value = (Object[]) o;
     }
 
     /**
@@ -72,7 +82,7 @@ public class NameImpl extends Name implements IValueInstance
     {
         if(!(o instanceof IValueInstance)) return false;
         IValueInstance inst = (IValueInstance) o;
-        if(1 != inst.edma_getDomain().getIndex()) return false;
+        if(7 != inst.edma_getDomain().getIndex()) return false;
         return edma_domain.valueEqual(value, inst.edma_getValue());
     }
 
@@ -82,7 +92,8 @@ public class NameImpl extends Name implements IValueInstance
      */
     public int hashCode()
     {
-        return value.hashCode();
+        if(edma_hash == 0) edma_hash = edma_domain.valueHashCode(value);
+        return edma_hash;
     }
 
     /**
@@ -95,15 +106,15 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * Compare this Name to another Name
-     * @param name  The Name to compare with
-     * @return      A negative integer, zero, or a positive integer as this
-     *              Name is less than, equal to, or greater than the specified
-     *              Name
+     * Compare this Student to another Student
+     * @param student  The Student to compare with
+     * @return         A negative integer, zero, or a positive integer as this
+     *                 Student is less than, equal to, or greater than the
+     *                 specified Student
      */
-    public int compareTo(Name name)
+    public int compareTo(Student student)
     {
-        return edma_domain.valueCompare(value, ((NameImpl) name).value);
+        return edma_domain.valueCompare(value, ((StudentImpl) student).value);
     }
 
     /**
@@ -116,11 +127,38 @@ public class NameImpl extends Name implements IValueInstance
     }
 
     /**
-     * returns the String value that is stored in this Name
-     * @return  The String value stored in this Name
+     * returns the value of the field name
+     * @return  The value of the field name
      */
-    public String value()
+    public Name name()
     {
-        return (String) value;
+        return new NameImpl(value[0]);
+    }
+
+    /**
+     * returns the value of the field age
+     * @return  The value of the field age
+     */
+    public Age age()
+    {
+        return new AgeImpl(value[1]);
+    }
+
+    /**
+     * returns the value of the field courses
+     * @return  The value of the field courses
+     */
+    public Courses courses()
+    {
+        return new CoursesImpl(value[2]);
+    }
+
+    /**
+     * returns the value of the field active
+     * @return  The value of the field active
+     */
+    public Active active()
+    {
+        return new ActiveImpl(value[3]);
     }
 }
