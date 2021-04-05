@@ -1,6 +1,6 @@
 ## Databases - Assignment 3
 
-#### Lavet af Amalie, Amanda og Benjamin.
+##### Lavet af Amalie, Amanda og Benjamin.
 
 ### Task 1
 Model the JSON abstract syntax tree using ValueDomains (hint: can be done using around 8 ValueDomains).
