@@ -1,0 +1,1 @@
+ValueDomain MyInt : Integer[1..42] Constraints[isEven]
